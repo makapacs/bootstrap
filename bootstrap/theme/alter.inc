@@ -27,10 +27,10 @@ function bootstrap_css_alter(&$css) {
       /********Added By Margots to have Local version***********/
       $active_theme_path = drupal_get_path('theme', $GLOBALS['theme']);
       if (theme_get_setting('bootstrap_bootswatch')) {
-          $cdn =  $active_theme_path . '/bootswatch/' . theme_get_setting('bootstrap_bootswatch') . '/bootstrap.min.css';
+          $cdn =  '/' . $active_theme_path . '/bootswatch/' . theme_get_setting('bootstrap_bootswatch') . '/bootstrap.min.css';
       }
       else {
-          $cdn =  $active_theme_path . '/bootstrap/css/bootstrap.min.css';
+          $cdn =  '/' . $active_theme_path . '/bootstrap/css/bootstrap.min.css';
       }
   }
     $css[$cdn] = array(
@@ -214,7 +214,7 @@ function bootstrap_js_alter(&$js) {
   }else{
       /***********Added By Margots to have local version*********/
       $active_theme_path = drupal_get_path('theme', $GLOBALS['theme']);
-      $cdn = $active_theme_path .'/bootstrap/js/bootstrap.min.js';
+      $cdn = '/' . $active_theme_path .'/bootstrap/js/bootstrap.min.js';
       $js[$cdn] = drupal_js_defaults();
       $js[$cdn]['data'] = $cdn;
       $js[$cdn]['type'] = 'external';
